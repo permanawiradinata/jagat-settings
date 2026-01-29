@@ -30,8 +30,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required'
+        ]);
         Product::create($request->all());
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success', 'Produk Berhasil ditambahkan');
     }
 
     /**
@@ -55,8 +60,13 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'description' => 'required'
+        ]);
         $product->update($request->all());
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success', 'Produk Berhasil diupdate');
     }
 
     /**

@@ -10,6 +10,11 @@
 <body>
     <h1>Produk</h1>
     <a href="{{ route('products.create')}}">Tambah Produk</a>
+    @if(session('success'))
+    <div style="color:green;">
+        {{ session('success')}}
+    </div>
+    @endif
 
     <table border="1">
         @foreach ($products as $product)

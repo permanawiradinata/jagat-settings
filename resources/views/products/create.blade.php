@@ -8,6 +8,15 @@
 </head>
 
 <body>
+    @if ($errors->any())
+    <div style="color:red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <form method="POST" action="{{ route('products.store') }}">
         @csrf
         <input name="name" placeholder="Nama Produk">
