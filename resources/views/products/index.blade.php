@@ -16,6 +16,11 @@
     </div>
     @endif
 
+    <form method="GET" action="{{ route('products.index') }}">
+        <input type="text" name="search" placeholder="Cari produk...." value="{{ $search }}">
+        <button type="submit">Cari</button>
+    </form>
+
     <table border="1">
         @foreach ($products as $product)
         <tr>
@@ -34,6 +39,8 @@
         </tr>
         @endforeach
     </table>
+
+    {{ $products->links() }}
 
     <a href="{{ route('dashboard')}}">dashboard</a>
 
