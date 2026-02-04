@@ -43,7 +43,7 @@ class ProductController extends Controller
             'description' => 'required'
         ]);
         Product::create($request->all());
-        return redirect()->route('products.index')->with('success', 'Produk Berhasil ditambahkan');
+        return redirect()->route('products.index')->with('success', 'Produk Berhasil ditambahkan!');
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductController extends Controller
             'description' => 'required'
         ]);
         $product->update($request->all());
-        return redirect()->route('products.index')->with('success', 'Produk Berhasil diupdate');
+        return redirect()->route('products.index')->with('success', 'Produk Berhasil diupdate!');
     }
 
     /**
